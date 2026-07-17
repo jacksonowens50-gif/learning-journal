@@ -1,10 +1,10 @@
 # Learning Journal 
 
-Working on leraning about coding and software as an FP&A professional experienced in SQL, Tableau, PowerBI, and excel 
+Working on learning about coding and software as an FP&A professional experienced in SQL, Tableau, Power BI, and Excel 
 
 ## Weekly Focus
-| Week | Dates | Theme | File |
-|------|-------|-------|------|
+| Week | Dates | Theme |
+|------|-------|-------|
 | 1 | Jul 16–17 | Consultant's toolkit: terminal, Git, VS Code, Python setup 
 | 2 | Jul 20–24 | Python for data work I: fundamentals + pandas 
 | 3 | Jul 27–31 | Python II: APIs, HTTP, JSON, automation 
