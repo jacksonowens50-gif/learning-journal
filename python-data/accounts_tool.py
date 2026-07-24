@@ -60,7 +60,7 @@ def group_totals(accounts):
 
 
 # ---------------------------------------------------------------
-# STEP 4 — try/except, uses the NORMAL_SIDE lookup dict    <-- YOU ARE HERE
+# STEP 4 — try/except, uses the NORMAL_SIDE lookup dict    [DONE]
 # ---------------------------------------------------------------
 def normal_side(account_type):
     try:
@@ -70,7 +70,7 @@ def normal_side(account_type):
 
 
 # ---------------------------------------------------------------
-# STEP 5 — the deliverable output
+# STEP 5 — the deliverable output    [DONE]
 # ---------------------------------------------------------------
 def format_report(accounts):
     lines = []
@@ -88,7 +88,7 @@ def format_report(accounts):
     return "\n".join(lines)
 
 # ---------------------------------------------------------------
-# STEP 6 — more error handling
+# STEP 6 — more error handling    [DONE]
 # ---------------------------------------------------------------
 def safe_balance(account):
     try:
