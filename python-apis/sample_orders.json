@@ -1,0 +1,80 @@
+{
+  "meta": {
+    "source": "ERP-Sales-API",
+    "endpoint": "/v2/orders",
+    "record_count": 3,
+    "generated_at": "2026-07-27T14:32:11Z",
+    "page": 1,
+    "has_more": false
+  },
+  "sales_reps": {
+    "REP-01": { "name": "Dana Whitfield", "region": "Southeast" },
+    "REP-02": { "name": "Marcus Lin", "region": "West" }
+  },
+  "results": [
+    {
+      "order_id": "ORD-1001",
+      "order_date": "2026-07-15T09:32:00Z",
+      "status": "shipped",
+      "sales_rep_id": "REP-01",
+      "discount_pct": 0.05,
+      "order_total": 1284.5,
+      "customer": {
+        "id": "CUST-A",
+        "name": "Ridgeline Outfitters",
+        "segment": "Corporate",
+        "address": {
+          "street": "1400 Marsh Landing Pkwy",
+          "city": "Jacksonville",
+          "state": "FL",
+          "postal_code": "32250"
+        }
+      },
+      "line_items": [
+        { "sku": "TNT-4P", "description": "4-Person Tent", "quantity": 2, "unit_price": 349.0 },
+        { "sku": "BAG-20F", "description": "20F Sleeping Bag", "quantity": 4, "unit_price": 129.5 },
+        { "sku": "STV-CMP", "description": "Camp Stove", "quantity": 1, "unit_price": 68.5 }
+      ]
+    },
+    {
+      "order_id": "ORD-1002",
+      "order_date": "07/18/2026",
+      "status": "pending",
+      "sales_rep_id": "REP-02",
+      "order_total": "742.25",
+      "customer": {
+        "id": "CUST-B",
+        "name": "Summit Gear Co.",
+        "segment": "Small Business"
+      },
+      "line_items": [
+        { "sku": "PCK-65L", "description": "65L Backpack", "quantity": 3, "unit_price": "219.00" },
+        { "sku": "FLT-PMP", "description": "Water Filter Pump", "quantity": 1, "unit_price": 85.25 }
+      ]
+    },
+    {
+      "order_id": "ORD-1003",
+      "order_date": "2026-07-22T16:05:00Z",
+      "status": "shipped",
+      "sales_rep_id": "REP-09",
+      "discount_pct": null,
+      "order_total": 2110.0,
+      "customer": {
+        "id": "CUST-C",
+        "name": "Blue Ridge Supply",
+        "segment": "Corporate",
+        "address": {
+          "street": "88 Foothills Rd",
+          "city": "Asheville",
+          "state": "NC",
+          "postal_code": null
+        }
+      },
+      "line_items": [
+        { "sku": "TNT-2P", "description": "2-Person Tent", "quantity": 5, "unit_price": 249.0 },
+        { "sku": "BAG-20F", "description": "20F Sleeping Bag", "quantity": 6, "unit_price": 129.5 },
+        { "sku": "LNT-LED", "description": "LED Lantern", "quantity": 4, "unit_price": 22.75 }
+      ]
+    }
+  ]
+}
