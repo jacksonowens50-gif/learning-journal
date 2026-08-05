@@ -1,27 +1,45 @@
 
-import json
+import os
+import requests
 
-with open("sample_orders.json") as f:
-    data = json.load(f)
+api_key = os.getenv("FRED_API_KEY")
 
-cust = data["results"][1]["customer"]     # ORD-1002 — no address
+url = "https://api.stlouisfed.org/fred/series/observations"
 
-# A. Square brackets — let it break
+params = {
+    "series_id": "UNRATE",
+    "api_key": api_key,
+    "file_type": "json",
+    "observation_start": "2015-01-01",
+    "observation_end": "2025-12-31",
+    "limit": 100,
+    "offset": 100
+}
+
 try:
-    print("A:", cust["address"])
-except Exception as e:
-    print("A: KeyError ->", e)
+    response = requests.get(url, params=params, timeout=30)
+    response.raise_for_status()
+except requests.exceptions.RequestException as e:
+    raise SystemExit(f"Request failed: {e}")
 
-# B. .get() with no default
-print("B:", cust.get("address"))
+all_observations = []
+offset = 0
+page = 0
 
-# C. .get() with a default
-print("C:", cust.get("address", "NOT PROVIDED"))
+while True:
+    params["offset"] = offset
+    response = requests.get(url, params=params, timeout=30)
+    response.raise_for_status()
+    data = response.json()
 
-# D. .get() on a key that EXISTS but holds null
-order = data["results"][2]              # ORD-1003
-discount = order.get("discount_pct") or 0
-print(discount)
+    batch = data["observations"]
+    all_observations.extend(batch)
+    offset += len(batch)
+    page += 1
 
-# Looks safe. Isn't.
-print(cust.get("address", {}).get("city", "UNKNOWN"))
+    print(f"page {page}: got {len(batch)}, total {offset} of {data['count']}")
+
+    if offset >= data["count"]:
+        break
+    if page >= 50:
+        raise SystemExit("Too many pages — something is wrong")
